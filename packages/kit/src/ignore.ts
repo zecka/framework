@@ -6,12 +6,12 @@ import { tryUseNuxt } from './context'
 /**
  * Return a filter function to filter an array of paths
  */
-export function isIgnored (pathname: string): boolean {
+export function isIgnored (pathname: string): boolean | null {
   const nuxt = tryUseNuxt()
 
   // Happens with CLI reloads
   if (!nuxt) {
-    return false
+    return null
   }
 
   if (!nuxt._ignore) {
